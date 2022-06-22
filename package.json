@@ -1,6 +1,6 @@
 {
   "name": "za-zi",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "packageManager": "pnpm@6.32.3",
   "description": "",
   "keywords": [],
@@ -64,7 +64,7 @@
     "unbuild": "^0.7.4",
     "vitest": "^0.10.0",
     "which": "^2.0.2",
-    "release-it":"^15.1.0"
+    "release-it": "^15.1.0"
   },
   "eslintConfig": {
     "extends": "@antfu"
