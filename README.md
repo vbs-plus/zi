@@ -12,7 +12,7 @@ zi ==> zi.ts => runner.ts + parse.ts ==> install dep
 ```
 
 ```shell
-ni
+zi
 
 # npm install
 # yarn install
