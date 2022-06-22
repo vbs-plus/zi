@@ -3,7 +3,7 @@
 自动选择包管理工具
 ## install
 ```md
-npm i -g @mohen/zi
+npm i -g za-zi
 ```
 ## zi
 
