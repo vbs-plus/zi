@@ -14,7 +14,7 @@ export async function runCli(fn: Runner, options: DetectOptions = {}) {
 
   try {
     // eslint-disable-next-line no-console
-    console.log(fn, options, args, 'runCli')
+    // console.log(fn, options, args, 'runCli')
     await run(fn, args, options)
   }
   catch (error) {
