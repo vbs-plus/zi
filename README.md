@@ -176,7 +176,7 @@ alias release="zrrelease"
 alias re="zr release"
 ```
 
-OK,接下来你可以在你的 `item2` 输入 `s`即代表 `zr start` ，然后 `zr` 会去自动寻找 `packageManager` 运行对应的命令
+OK,接下来你可以在你的 `item2` 输入 `s` 即代表 `zr start` ，然后 `zr` 会去自动寻找 `packageManager` 运行对应的命令，输入`i` 即代表 `zi`，当然，你也可以自己进行自定义。
 
 
 ## Case测试
