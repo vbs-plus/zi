@@ -134,5 +134,5 @@ export function getCommand(agent: Agent, command: Command, args: string[] = []) 
   if (!agentCommand)
     throw new Error(`命令 "${command}" 在 "${agent}" 暂不支持`)
   // replace {0}
-  return agentCommand.replace('{0}', args.join(' ').trim())
+  return agentCommand.replace("{0}", args.join(" ")).trim();
 }

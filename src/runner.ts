@@ -63,7 +63,7 @@ export async function run(fn: Runner, args: string[], options: DetectOptions = {
   if (!command) return
 
   // eslint-disable-next-line no-console
-  console.log(command)
+  // console.log(command)
   // run
   await execaCommand(command, { stdio: 'inherit', encoding: 'utf-8', cwd })
 }
