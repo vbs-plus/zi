@@ -34,6 +34,7 @@ export const parseZi = <Runner>((agent, args, ctx) => {
 })
 
 export const parseZr = <Runner>(async(agent, args, ctx) => {
+  //TODO: 存在一个潜在问题，用户电脑无权限，则zr失效，会报443问题
   // eslint-disable-next-line no-console
   // console.log(agent, args, ctx, "parseZr");
   const storage = (await loadStorage())!;
