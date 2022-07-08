@@ -71,7 +71,8 @@ export async function getConfig(): Promise<Config> {
 export async function getDefaultAgent() {
   const { currentAgent } = await getConfig()
   // prompt代表默认无agent行为
-  if (currentAgent === 'prompt' && process.env.CI) return 'npm'
+  if (currentAgent === 'prompt' && process.env.CI)
+    return 'npm'
   return currentAgent
 }
 

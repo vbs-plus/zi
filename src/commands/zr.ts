@@ -1,4 +1,4 @@
-import { parseZr } from "../parse";
-import { runCli } from "../runner";
+import { parseZr } from '../parse'
+import { runCli } from '../runner'
 
-runCli(parseZr);
+runCli(parseZr)

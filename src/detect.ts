@@ -34,10 +34,13 @@ export async function detect({ autoInstall, cwd }: DetectOptions) {
         const [name, version] = pkg.packageManager.split('@')
 
         // yarn 2.x ==> yarn@berry
-        if (name === 'yarn' && parseInt(version) > 1) agent = 'yarn@berry'
+        if (name === 'yarn' && parseInt(version) > 1)
+          agent = 'yarn@berry'
         // pnpm6.x
-        else if (name === 'pnpm' && parseInt(version) < 7) agent = 'pnpm@6'
-        else if (name in AGENTS) agent = name
+        else if (name === 'pnpm' && parseInt(version) < 7)
+          agent = 'pnpm@6'
+        else if (name in AGENTS)
+          agent = name
         else console.warn('[zi] 无法识别的包管理工具', pkg.packageManager)
       }
     }
@@ -45,7 +48,8 @@ export async function detect({ autoInstall, cwd }: DetectOptions) {
   }
 
   // 根据lockFile定位agent
-  if (!agent && lockFilePath) agent = LOCKS[path.basename(lockFilePath)]
+  if (!agent && lockFilePath)
+    agent = LOCKS[path.basename(lockFilePath)]
 
   // autoInstall:false，判断本地是否无环境，无则提示是否全局安装对应的环境
   if (agent && !cmdExists(agent.split('@')[0])) {
@@ -54,7 +58,8 @@ export async function detect({ autoInstall, cwd }: DetectOptions) {
         `[zi] Detected ${agent} but it doesn't seem to be installed.\n`,
       )
 
-      if (process.env.CI) process.exit(1)
+      if (process.env.CI)
+        process.exit(1)
 
       // https://www.npmjs.com/package/terminal-link
       const link = terminalLink(agent, INSTALL_PAGE[agent])
@@ -65,7 +70,8 @@ export async function detect({ autoInstall, cwd }: DetectOptions) {
         type: 'confirm',
         message: `你希望全局安装 ${link} 吗?`,
       })
-      if (!tryInstall) process.exit(1)
+      if (!tryInstall)
+        process.exit(1)
     }
     // 装环境
     await execaCommand(`npm i -g ${agent}`, { stdio: 'inherit', cwd })

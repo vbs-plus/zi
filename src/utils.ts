@@ -22,10 +22,10 @@ export function cmdExists(cmd: string) {
     // #8 执行系统命令
     execSync(
       // https://juejin.cn/post/6908367114315235341
-      os.platform() === "win32"
+      os.platform() === 'win32'
         ? `cmd /c "(help ${cmd} > nul || exit 0) && where ${cmd} > nul 2> nul"`
-        : `command -v ${cmd}`
-    );
+        : `command -v ${cmd}`,
+    )
     return true
   }
   catch {
@@ -33,15 +33,15 @@ export function cmdExists(cmd: string) {
   }
 }
 
-
 export function getPackageJson(cwd = process.cwd()): any {
   const path = resolve(cwd, 'package.json')
-  
+
   if (fs.existsSync(path)) {
     try {
       const raw = fs.readFileSync(path, 'utf-8')
       return JSON.parse(raw)
-    } catch (error) {
+    }
+    catch (error) {
       console.warn('解析 package.json 失败')
       process.exit(0)
     }

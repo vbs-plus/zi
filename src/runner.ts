@@ -52,7 +52,8 @@ export async function run(fn: Runner, args: string[], options: DetectOptions = {
             .map(value => ({ title: value, value })),
         })
       ).agent
-      if (!agent) return
+      if (!agent)
+        return
     }
     command = await fn(agent as Agent, args, {
       hasLock: Boolean(agent),
@@ -60,7 +61,8 @@ export async function run(fn: Runner, args: string[], options: DetectOptions = {
     })
   }
 
-  if (!command) return
+  if (!command)
+    return
 
   // eslint-disable-next-line no-console
   // console.log(command)
