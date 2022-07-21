@@ -179,7 +179,7 @@ alias re="zr release"
 OK,接下来你可以在你的 `item2` 输入 `s` 即代表 `zr start` ，然后 `zr` 会去自动寻找 `packageManager` 运行对应的命令，输入`i` 即代表 `zi`，当然，你也可以自己进行自定义。
 
 
-## Case测试
+## Case测试(done)
 
 1. 有 `pnpm-lock.yaml` 控制 `package.json` 的 `packageManager` ,等等，控制变量
 2. 删除全部 `lock` 文件，测试 `ni`
@@ -193,6 +193,7 @@ OK,接下来你可以在你的 `item2` 输入 `s` 即代表 `zr start` ，然后
 11. 测试 `zun axios`
 12. 测试 `zun @types/node -D`
 13. 使用 Vitest 进行单测
-## TODO
 
-编写文章记录全过程和踩坑点，思维导图系统梳理
+## Issues
+
+如果 `mac` 当前用户无权限，则 `zr` 和 `-g` 命令均会失效，解决方案是在终端输入 `sudo chown -R USER_NAME ~/.npm`
