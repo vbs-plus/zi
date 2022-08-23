@@ -10,9 +10,6 @@ let storage: Storage | undefined
 // find _storage.json path
 const storagePath = resolve(fileURLToPath(import.meta.url), '../_storage.json')
 
-// eslint-disable-next-line no-console
-console.log(storagePath, 1121212121212)
-
 /** 记录上一次命令 */
 export async function loadStorage(fn?: (storage: Storage) => Promise<boolean> | boolean) {
   if (!storage)
