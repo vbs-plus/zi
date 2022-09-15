@@ -1,3 +1,8 @@
 {
-  "extends": "@antfu"
+  "extends": "@vbs",
+  "rules": {
+    "no-console": "off",
+    "no-useless-escape":"off",
+    "@typescript-eslint/brace-style":"off"
+  }
 }

@@ -1,11 +1,11 @@
-import type { Choice } from 'prompts'
 import prompts from 'prompts'
 import { version } from '../package.json'
-import type { Agent, Command } from './enums'
 import { AGENTS } from './enums'
 import { dump, loadStorage } from './storage'
-import type{ Runner } from './type'
 import { exclude, getPackageJson } from './utils'
+import type{ Runner } from './type'
+import type { Agent, Command } from './enums'
+import type { Choice } from 'prompts'
 
 export function getCommand(
   agent: Agent,
@@ -36,12 +36,10 @@ export const getNrCommand = <Runner>((agent, args) => {
 
 /** 解析命令语句，并替换 */
 export const parseZi = <Runner>((agent, args) => {
-  // eslint-disable-next-line no-console
   // console.log(agent, args, ctx, 'parseZi')
 
   // zi -v
   if (args.length === 1 && args[0] === '-v') {
-    // eslint-disable-next-line no-console
     console.log(`zi 当前版本为 v${version}`)
     process.exit(1)
   }
@@ -61,9 +59,9 @@ export const parseZi = <Runner>((agent, args) => {
   return getCommand(agent, 'add', args)
 })
 
-export const parseZr = <Runner>(async (agent, args, ctx) => {
+export const parseZr = <Runner>(async(agent, args, ctx) => {
   // TODO: 存在一个潜在问题，用户电脑无权限，则zr失效，会报443问题
-  // eslint-disable-next-line no-console
+
   // console.log(agent, args, ctx, "parseZr");
   const storage = (await loadStorage())!
 
@@ -112,8 +110,7 @@ export const parseZr = <Runner>(async (agent, args, ctx) => {
         return
 
       args.push(fn)
-    }
-    catch (error) {
+    } catch (error) {
       process.exit(1)
     }
   }
@@ -142,4 +139,3 @@ export const parseZun = <Runner>((agent, args) => {
 
   return getCommand(agent, 'uninstall', args)
 })
-

@@ -4,10 +4,10 @@ import { findUp } from 'find-up'
 import terminalLink from 'terminal-link'
 import { execaCommand } from 'execa'
 import prompts from 'prompts'
-import type { Agent } from './enums'
 import { AGENTS, INSTALL_PAGE, LOCKS } from './enums'
-import type { DetectOptions } from './type'
 import { cmdExists } from './utils'
+import type { Agent } from './enums'
+import type { DetectOptions } from './type'
 
 /** 根据各个 agent 的 lockFile 和 package.json 定位 agent */
 export async function detect({ autoInstall, cwd }: DetectOptions) {
@@ -43,8 +43,7 @@ export async function detect({ autoInstall, cwd }: DetectOptions) {
           agent = name
         else console.warn('[zi] 无法识别的包管理工具', pkg.packageManager)
       }
-    }
-    catch (error) {}
+    } catch (error) {}
   }
 
   // 根据lockFile定位agent

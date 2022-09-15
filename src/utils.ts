@@ -27,8 +27,7 @@ export function cmdExists(cmd: string) {
         : `command -v ${cmd}`,
     )
     return true
-  }
-  catch {
+  } catch {
     return false
   }
 }
@@ -40,8 +39,7 @@ export function getPackageJson(cwd = process.cwd()): any {
     try {
       const raw = fs.readFileSync(path, 'utf-8')
       return JSON.parse(raw)
-    }
-    catch (error) {
+    } catch (error) {
       console.warn('解析 package.json 失败')
       process.exit(0)
     }

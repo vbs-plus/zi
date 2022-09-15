@@ -2,8 +2,8 @@ import fs from 'fs'
 import path from 'path'
 import { findUp } from 'find-up'
 import ini from 'ini'
-import type { Agent } from './enums'
 import { LOCKS } from './enums'
+import type { Agent } from './enums'
 
 interface Config {
   currentAgent: Agent | 'prompt'
@@ -54,8 +54,7 @@ export async function getConfig(): Promise<Config> {
     // 默认为 defaultConfig
     else if (!fs.existsSync(rcPath)) {
       config = defaultConfig
-    }
-    else {
+    } else {
       // 合并配置
       config = Object.assign(
         {},

@@ -3,8 +3,8 @@ import prompts from 'prompts'
 import { execaCommand } from 'execa'
 import { getDefaultAgent, getGlobalAgent } from './config'
 import { detect } from './detect'
-import type { Agent } from './enums'
 import { agents } from './enums'
+import type { Agent } from './enums'
 import type { DetectOptions, Runner } from './type'
 
 export async function runCli(fn: Runner, options: DetectOptions = {}) {
@@ -13,11 +13,9 @@ export async function runCli(fn: Runner, options: DetectOptions = {}) {
   const args = process.argv.slice(2).filter(Boolean)
 
   try {
-    // eslint-disable-next-line no-console
     // console.log(fn, options, args, 'runCli')
     await run(fn, args, options)
-  }
-  catch (error) {
+  } catch (error) {
     process.exit(1)
   }
 }
@@ -64,7 +62,6 @@ export async function run(fn: Runner, args: string[], options: DetectOptions = {
   if (!command)
     return
 
-  // eslint-disable-next-line no-console
   // console.log(command)
   // run
   await execaCommand(command, { stdio: 'inherit', encoding: 'utf-8', cwd })
