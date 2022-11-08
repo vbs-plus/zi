@@ -1,6 +1,6 @@
 import { existsSync, promises as fs } from 'fs'
 import { resolve } from 'path'
-import { fileURLToPath } from 'url'
+import { tmpdir } from 'os'
 
 export interface Storage {
   lastRunCommand?: string
@@ -8,7 +8,8 @@ export interface Storage {
 
 let storage: Storage | undefined
 // find _storage.json path
-const storagePath = resolve(fileURLToPath(import.meta.url), '../_storage.json')
+const storageDir = resolve(tmpdir(), 'za-zi')
+const storagePath = resolve(storageDir, '../_storage.json')
 
 /** 记录上一次命令 */
 export async function loadStorage(fn?: (storage: Storage) => Promise<boolean> | boolean) {
@@ -23,6 +24,9 @@ export async function loadStorage(fn?: (storage: Storage) => Promise<boolean> | 
 }
 
 export async function dump() {
-  if (storage)
+  if (storage) {
+    if (!existsSync(storageDir))
+      await fs.mkdir(storageDir, { recursive: true })
     await fs.writeFile(storagePath, JSON.stringify(storage), 'utf-8')
+  }
 }
